@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CardCategory extends StatelessWidget {
+class CardCategory extends StatefulWidget {
   final String name;
   final String imageUrl;
   final String price;
@@ -10,6 +10,12 @@ class CardCategory extends StatelessWidget {
   const CardCategory(
       this.name, this.imageUrl, this.price, this.layoutwidth, this.ratio,
       {super.key});
+
+  @override
+  State<CardCategory> createState() => _CardCategoryState();
+}
+
+class _CardCategoryState extends State<CardCategory> {
   @override
   Widget build(BuildContext context) {
     final double heightImage;
@@ -17,7 +23,7 @@ class CardCategory extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       // elevation: 4,
-      margin: EdgeInsets.all((layoutwidth / 150) * ratio),
+      margin: EdgeInsets.all((widget.layoutwidth / 150) * widget.ratio),
       borderOnForeground: true,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,8 +34,8 @@ class CardCategory extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 border: Border.all(
-                    color: const Color.fromARGB(255, 51, 51, 51),
-                    width: (layoutwidth / 40) * ratio),
+                    color: Colors.black26,
+                    width: (widget.layoutwidth / 40) * widget.ratio),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
@@ -42,15 +48,15 @@ class CardCategory extends StatelessWidget {
                   topRight: const Radius.circular(15),
                 ),
                 child: Image.asset(
-                  imageUrl,
-                  height: (layoutwidth / 1) * ratio,
+                  widget.imageUrl,
+                  height: (widget.layoutwidth / 1) * widget.ratio,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Container(
-              height: (layoutwidth / 7) * ratio,
+              height: (widget.layoutwidth / 7) * widget.ratio,
               padding: const EdgeInsets.only(bottom: 0),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -67,20 +73,20 @@ class CardCategory extends StatelessWidget {
               ),
               child: ListTile(
                 title: Text(
-                  name,
+                  widget.name,
                   textAlign: TextAlign.end,
                   style: TextStyle(
-                    fontSize: layoutwidth / 30,
+                    fontSize: widget.layoutwidth * widget.ratio / 30,
                     color: Colors.white,
                   ),
                   softWrap: true,
                   overflow: TextOverflow.clip,
                 ),
                 subtitle: Text(
-                  price,
+                  widget.price,
                   textAlign: TextAlign.right,
                   style: TextStyle(
-                    fontSize: layoutwidth / 40,
+                    fontSize: widget.layoutwidth * widget.ratio / 40,
                     color: Colors.white,
                   ),
                   softWrap: true,

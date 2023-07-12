@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/widgets/tab_bar_Ex.dart';
-import 'package:flutter_application_3/widgets/tab_bar_Ex_kurdy.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../widgets/tab_bar_Ex_en.dart';
 // ignore: unused_import
 import 'dart:ui_web';
 
 class MainScreen extends StatefulWidget {
-  // final int selctedlanguageIndex;
-  //final String selectlanguage;
-  const MainScreen({super.key});
+  //  final int selctedlanguageIndex;
+  // final String selectlanguage;
+  final double widthLayoutEX;
+  final double ratioEx;
+  const MainScreen(this.widthLayoutEX, this.ratioEx);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  void selectLanguage(BuildContext ctx, String locale, String language) {
-    Navigator.of(ctx).pushNamed(TabBarEx.routeName);
+  void selectLanguage(BuildContext ctx, String locale, String localIndex) {
+    Navigator.of(ctx).pushNamed(TabBarEx.routeName,
+        arguments: {'locale': locale, 'localIndex': localIndex});
   }
 
   //Future<void>? _launched;
@@ -62,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      selectLanguage(context, '0', 'عربي');
+                      selectLanguage(context, 'عربي', '0');
                     },
                     style: ButtonStyle(
                       minimumSize:
@@ -85,9 +87,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        TabBarExKurdy.routeName,
-                      );
+                      selectLanguage(context, 'كوردي', '1');
                     },
                     style: ButtonStyle(
                       minimumSize:
@@ -108,9 +108,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        TabBarExEn.routeName,
-                      );
+                      selectLanguage(context, 'English', '2');
                     },
                     style: ButtonStyle(
                       minimumSize:

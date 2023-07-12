@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_3/widgets/tab_bar_Ex.dart';
 
 class HomeViewLarge extends StatefulWidget {
+  String selectedLocale;
+  String selectedLocaleIndex;
   final double widthLayout;
-  final double ratio;
-  const HomeViewLarge(this.widthLayout, this.ratio, {super.key});
+  double ratio;
+  HomeViewLarge(this.selectedLocale, this.selectedLocaleIndex, this.widthLayout,
+      this.ratio,
+      {super.key});
 
   @override
   State<HomeViewLarge> createState() => _HomeViewLargeState();
@@ -19,9 +23,10 @@ class _HomeViewLargeState extends State<HomeViewLarge> {
         // ignore: prefer_const_constructors
         // reverse: true,
         children: [
-          const SizedBox(
+          SizedBox(
             width: 900,
-            child: HomeViewSmall(900, 1),
+            child: HomeViewSmall(
+                widget.selectedLocale, widget.selectedLocaleIndex, 900, 1),
           ),
           Stack(children: [
             Container(
@@ -45,7 +50,11 @@ class _HomeViewLargeState extends State<HomeViewLarge> {
         children: [
           SizedBox(
               width: widget.widthLayout,
-              child: HomeViewSmall(widget.widthLayout, widget.ratio)),
+              child: HomeViewSmall(
+                  widget.selectedLocale,
+                  widget.selectedLocaleIndex,
+                  widget.widthLayout,
+                  widget.ratio)),
         ],
       );
     }
