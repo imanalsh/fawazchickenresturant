@@ -39,8 +39,9 @@ class MyApp extends StatelessWidget {
               const TextSelectionThemeData(selectionColor: Colors.white),
         ),
         darkTheme: ThemeData.dark(),
-        // home: TabBarEx(),
+        //   home: MainScreen(constraints.maxWidth, 1),
         //(child: const TabBarEx()),
+        //initialRoute: 'mainScreen',
         routes: {
           '/': (context) => MainScreen(constraints.maxWidth, 1),
           TabBarEx.routeName: (context) => TabBarEx(constraints.maxWidth, 1),

@@ -26,11 +26,18 @@ class _TabBarExState extends State<TabBarEx> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+    String selectedLocale;
+    String selectedLocaleIndex;
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      final routeArg =
+          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+      selectedLocale = routeArg['locale']!;
+      selectedLocaleIndex = routeArg['localIndex']!;
+    } else {
+      selectedLocale = 'عربي';
+      selectedLocaleIndex = '0';
+    }
 
-    final routeArg =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final String selectedLocale = routeArg['locale']!;
-    final String selectedLocaleIndex = routeArg['localIndex']!;
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < 1200) {
         return HomeViewSmall(selectedLocale, selectedLocaleIndex,
@@ -87,6 +94,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                 ),
 
                 //collapsedHeight: 100,
+                // snap: true,
+                // floating: true,
               ),
               SliverPersistentHeader(
                 delegate: MySliverPersistentHeaderDelegate(
@@ -117,31 +126,80 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
           },
           body: TabBarView(
             children: datalacale[int.parse(widget.selectedLocaleIndex)]
-                .map((category) => GridView(
-                      gridDelegate:
-                          // ignore: prefer_const_constructors
-                          SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent:
-                                  (widget.widthLayout) * widget.ratio,
-                              childAspectRatio: 3 / 4,
-                              crossAxisSpacing: 0,
-                              mainAxisSpacing: 0),
-                      children: (category['restaurants']
-                              as List<Map<String, dynamic>>)
-                          .map(
-                            (restaurant) => Container(
+                .map((category) {
+              return Directionality(
+                textDirection: TextDirection.rtl,
+                child: GridView(
+                  gridDelegate:
+                      // ignore: prefer_const_constructors
+                      SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent:
+                              (widget.widthLayout) * widget.ratio,
+                          childAspectRatio: 3 / 4,
+                          crossAxisSpacing: 0,
+                          mainAxisSpacing: 0),
+                  children: (category['restaurants']
+                          as List<Map<String, dynamic>>)
+                      .map(
+                        (restaurant) => ListView(
+                          //prototypeItem: Text('nvn'),
+                          children: [
+                            Visibility(
+                              visible: (true),
+                              child: Container(
+                                // width: MediaQuery.of(context).size.width * 2,
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                        colors: [Colors.black, Colors.black]),
+                                    // Creates border
+                                    color: Color.fromARGB(111, 245, 228, 207)),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20),
+                                      child: Text(
+                                        restaurant['namemain'],
+                                        textAlign: TextAlign.right,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: (restaurant['namemain'] != ''),
+                                      child: Row(
+                                        children: [
+                                          IconButton.outlined(
+                                              onPressed: () {
+                                                setState(() {
+                                                  widget.ratio = 1;
+                                                });
+                                              },
+                                              icon: Icon(Icons.square_rounded)),
+                                          IconButton.outlined(
+                                              onPressed: () {
+                                                setState(() {
+                                                  widget.ratio = 0.5;
+                                                });
+                                              },
+                                              icon:
+                                                  Icon(Icons.grid_view_sharp)),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
                               color: Color.fromARGB(255, 3, 3, 3),
                               padding:
-                                  EdgeInsets.only(left: 0, top: 0, right: 0),
+                                  EdgeInsets.only(left: 20, top: 10, right: 20),
                               child: Column(
                                 children: [
-                                  Text(
-                                    restaurant['namemain'],
-                                    textAlign: TextAlign.right,
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
                                   InkWell(
                                     onTap: () {
                                       selectMeal(context);
@@ -160,10 +218,13 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                 ],
                               ),
                             ),
-                          )
-                          .toList(),
-                    ))
-                .toList(),
+                          ],
+                        ),
+                      )
+                      .toList(),
+                ),
+              );
+            }).toList(),
           ),
         ),
       ),
@@ -205,8 +266,6 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
             setState(() {
               widget.selectedLocale = 'عربي';
               widget.selectedLocaleIndex = '0';
-
-              widget.ratio = 0.5;
             });
 
             print(widget.ratio);
@@ -215,8 +274,6 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
             setState(() {
               widget.selectedLocale = 'كوردي';
               widget.selectedLocaleIndex = '1';
-
-              widget.ratio = 1;
             });
 
             print(widget.ratio);

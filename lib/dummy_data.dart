@@ -285,21 +285,21 @@ final datalacale = [
           "price": "7000"
         },
         {
-          "namemain": "   ",
+          "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "7000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "7000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
@@ -378,7 +378,7 @@ final datalacale = [
           "price": "7000"
         },
         {
-          "namemain": "مقبلات",
+          "namemain": "",
           "name": "2مقبلات",
           "imageUrl": "assets/images/part7/mokablaet.jpg",
           "imageIcon": "assets/images/icons/Appetizer.png",
@@ -399,21 +399,21 @@ final datalacale = [
           "price": "3000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "2شاورمە",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "3000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "شاورمە3",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "3000"
         },
         {
-          "namemain": "     ",
+          "namemain": "",
           "name": "شاورمە 4",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
@@ -506,21 +506,21 @@ final datalacale = [
           "price": "7000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "Shawarma2",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "7000"
         },
         {
-          "namemain": "    ",
+          "namemain": "",
           "name": "Shawarma3",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
           "price": "7000"
         },
         {
-          "namemain": "   ",
+          "namemain": "",
           "name": "Shawarma4",
           "imageUrl": "assets/images/part1/chick.jpg",
           "imageIcon": "assets/images/icons/icondoner.png",
@@ -539,14 +539,14 @@ final datalacale = [
           "price": "7000"
         },
         {
-          "namemain": "Gas grilled chicken",
+          "namemain": "",
           "name": "Gas grilled chicken 2",
           "imageUrl": "assets/images/part2/chicken.jpg",
           "imageIcon": "assets/images/icons/chichenicon.jpg",
           "price": "7000"
         },
         {
-          "namemain": "Gas grilled chicken",
+          "namemain": "",
           "name": "Gas grilled chicken 3",
           "imageUrl": "assets/images/part2/chicken.jpg",
           "imageIcon": "assets/images/icons/chichenicon.jpg",
