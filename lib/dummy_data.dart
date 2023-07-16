@@ -278,6 +278,7 @@ final datalacale = [
       "types": "شاورما",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "شاورما",
           "name": "1شاورما",
           "imageUrl": "assets/images/part1/donner.jpg",
@@ -285,6 +286,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 2,
           "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -292,6 +294,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 3,
           "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -299,6 +302,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 4,
           "namemain": "",
           "name": "2شاورما",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -311,6 +315,7 @@ final datalacale = [
       "types": "دجاج مشوي غاز",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "دجاج مشوي غاز",
           "name": "1دجاج مشوي غاز",
           "imageUrl": "assets/images/part2/chicken.jpg",
@@ -323,6 +328,7 @@ final datalacale = [
       "types": "مشاوي على الفحم",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "مشاوي على الفحم",
           "name": "1مشاوي على الفحم",
           "imageUrl": "assets/images/part3/meat.jpg",
@@ -335,6 +341,7 @@ final datalacale = [
       "types": "غربي",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "غربي",
           "name": "1غربي",
           "imageUrl": "assets/images/part4/hambrger.jpg",
@@ -347,6 +354,7 @@ final datalacale = [
       "types": "معجنات",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "معجنات",
           "name": "1معجنات",
           "imageUrl": "assets/images/part5/Pizza.jpg",
@@ -359,6 +367,7 @@ final datalacale = [
       "types": "عصائر",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "عصائر",
           "name": "1عصائر",
           "imageUrl": "assets/images/part6/drink.jpg",
@@ -371,6 +380,7 @@ final datalacale = [
       "types": "مقبلات",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "مقبلات",
           "name": "1مقبلات",
           "imageUrl": "assets/images/part7/mokablaet.jpg",
@@ -378,6 +388,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 2,
           "namemain": "",
           "name": "2مقبلات",
           "imageUrl": "assets/images/part7/mokablaet.jpg",
@@ -392,6 +403,7 @@ final datalacale = [
       "types": "شاورمە",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "شاورمە",
           "name": "1شاورمە",
           "imageUrl": "assets/images/part1/donner.jpg",
@@ -399,6 +411,7 @@ final datalacale = [
           "price": "3000"
         },
         {
+          "id": 2,
           "namemain": "",
           "name": "2شاورمە",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -406,6 +419,7 @@ final datalacale = [
           "price": "3000"
         },
         {
+          "id": 3,
           "namemain": "",
           "name": "شاورمە3",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -413,6 +427,7 @@ final datalacale = [
           "price": "3000"
         },
         {
+          "id": 4,
           "namemain": "",
           "name": "شاورمە 4",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -425,6 +440,7 @@ final datalacale = [
       "types": "مریشکی کبابی بە غاز",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "مریشکی کبابی بە غاز",
           "name": "1 مریشکی کبابی بە غاز",
           "imageUrl": "assets/images/part2/chicken.jpg",
@@ -437,6 +453,7 @@ final datalacale = [
       "types": "کۆبوونەوەی کبابی",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "کۆبوونەوەی کبابی",
           "name": "1کۆبوونەوەی کبابی",
           "imageUrl": "assets/images/part3/meat.jpg",
@@ -449,6 +466,7 @@ final datalacale = [
       "types": "خواردنی رۆژئاوایی",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "خواردنی رۆژئاوایی",
           "name": "خواردنی رۆژئاوایی 1",
           "imageUrl": "assets/images/part4/hambrger.jpg",
@@ -461,6 +479,7 @@ final datalacale = [
       "types": "شیرینی",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "شیرینی",
           "name": "شیرینی 1",
           "imageUrl": "assets/images/part5/Pizza.jpg",
@@ -473,6 +492,7 @@ final datalacale = [
       "types": "شەربەتەکان",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "شەربەتەکان",
           "name": "شەربەتەکان 1",
           "imageUrl": "assets/images/part6/drink.jpg",
@@ -485,6 +505,7 @@ final datalacale = [
       "types": "خواردنی پێشکەشکار",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "خواردنی پێشکەشکار",
           "name": "خواردنی پێشکەشکار 1",
           "imageUrl": "assets/images/part7/mokablaet.jpg",
@@ -499,6 +520,7 @@ final datalacale = [
       "types": "Shawarma",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Shawarma",
           "name": "Shawarma1",
           "imageUrl": "assets/images/part1/donner.jpg",
@@ -506,6 +528,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 2,
           "namemain": "",
           "name": "Shawarma2",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -513,6 +536,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 3,
           "namemain": "",
           "name": "Shawarma3",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -520,6 +544,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 4,
           "namemain": "",
           "name": "Shawarma4",
           "imageUrl": "assets/images/part1/chick.jpg",
@@ -532,6 +557,7 @@ final datalacale = [
       "types": "Gas grilled chicken",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Gas grilled chicken",
           "name": "Gas grilled chicken 1",
           "imageUrl": "assets/images/part2/chicken.jpg",
@@ -539,6 +565,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 2,
           "namemain": "",
           "name": "Gas grilled chicken 2",
           "imageUrl": "assets/images/part2/chicken.jpg",
@@ -546,6 +573,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 3,
           "namemain": "",
           "name": "Gas grilled chicken 3",
           "imageUrl": "assets/images/part2/chicken.jpg",
@@ -558,6 +586,7 @@ final datalacale = [
       "types": "Grilled meat",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Grilled meat",
           "name": "Grilled meat 1",
           "imageUrl": "assets/images/part3/meat.jpg",
@@ -570,6 +599,7 @@ final datalacale = [
       "types": "Western food",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Western food",
           "name": "Western food 1",
           "imageUrl": "assets/images/part4/hambrger.jpg",
@@ -582,6 +612,7 @@ final datalacale = [
       "types": "Pastries",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Pastries",
           "name": "Pastries 1",
           "imageUrl": "assets/images/part5/Pizza.jpg",
@@ -594,6 +625,7 @@ final datalacale = [
       "types": "Juices",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Juices",
           "name": "Juices 1",
           "imageUrl": "assets/images/part6/drink.jpg",
@@ -606,6 +638,7 @@ final datalacale = [
       "types": "Appetizers",
       "restaurants": [
         {
+          "id": 1,
           "namemain": "Appetizers",
           "name": "Appetizers 1",
           "imageUrl": "assets/images/part7/mokablaet.jpg",
@@ -613,6 +646,7 @@ final datalacale = [
           "price": "7000"
         },
         {
+          "id": 2,
           "namemain": "Appetizers",
           "name": "Appetizers 2",
           "imageUrl": "assets/images/part7/mokablaet.jpg",

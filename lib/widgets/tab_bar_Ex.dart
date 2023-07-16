@@ -78,6 +78,7 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
       body: DefaultTabController(
         length: 7,
         child: NestedScrollView(
+          scrollDirection: Axis.vertical,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBar(
@@ -129,99 +130,123 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                 .map((category) {
               return Directionality(
                 textDirection: TextDirection.rtl,
-                child: GridView(
-                  gridDelegate:
-                      // ignore: prefer_const_constructors
-                      SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent:
-                              (widget.widthLayout) * widget.ratio,
-                          childAspectRatio: 3 / 4,
-                          crossAxisSpacing: 0,
-                          mainAxisSpacing: 0),
-                  children: (category['restaurants']
-                          as List<Map<String, dynamic>>)
-                      .map(
-                        (restaurant) => ListView(
-                          //prototypeItem: Text('nvn'),
-                          children: [
-                            Visibility(
-                              visible: (true),
-                              child: Container(
-                                // width: MediaQuery.of(context).size.width * 2,
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: [Colors.black, Colors.black]),
-                                    // Creates border
-                                    color: Color.fromARGB(111, 245, 228, 207)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20),
-                                      child: Text(
-                                        restaurant['namemain'],
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                    ),
-                                    Visibility(
-                                      visible: (restaurant['namemain'] != ''),
-                                      child: Row(
-                                        children: [
-                                          IconButton.outlined(
-                                              onPressed: () {
-                                                setState(() {
-                                                  widget.ratio = 1;
-                                                });
-                                              },
-                                              icon: Icon(Icons.square_rounded)),
-                                          IconButton.outlined(
-                                              onPressed: () {
-                                                setState(() {
-                                                  widget.ratio = 0.5;
-                                                });
-                                              },
-                                              icon:
-                                                  Icon(Icons.grid_view_sharp)),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient:
+                        LinearGradient(colors: [Colors.black, Colors.black]),
+                  ),
+                  child: GridView(
+                    gridDelegate:
+                        // ignore: prefer_const_constructors
+                        SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent:
+                                (widget.widthLayout) * widget.ratio,
+                            childAspectRatio: 3 / 4,
+                            crossAxisSpacing: 0,
+                            mainAxisSpacing: 0),
+                    children:
+                        (category['restaurants'] as List<Map<String, dynamic>>)
+                            .map((restaurant) {
+                      return Column(
+                        //prototypeItem: Text('nvn'),
+
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                color: Color.fromARGB(255, 3, 3, 3),
+                                padding: EdgeInsets.only(
+                                    left: 20, top: 50, right: 20),
+                                child: InkWell(
+                                  onTap: () {
+                                    selectMeal(context);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      CardCategory(
+                                          restaurant['name'],
+                                          restaurant['imageUrl'],
+                                          restaurant['price'],
+                                          widget.widthLayout,
+                                          widget.ratio),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              color: Color.fromARGB(255, 3, 3, 3),
-                              padding:
-                                  EdgeInsets.only(left: 20, top: 10, right: 20),
-                              child: Column(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      selectMeal(context);
-                                    },
-                                    child: Column(
+                              Positioned(
+                                top: 10,
+                                left: 10,
+                                width: widget.widthLayout,
+                                child: Visibility(
+                                  visible: ((restaurant['id'] == 1) ||
+                                      (restaurant['id'] == 2)),
+                                  child: Container(
+                                    // width: MediaQuery.of(context).size.width * 2,
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(colors: [
+                                          Colors.black,
+                                          Colors.black
+                                        ]),
+                                        // Creates border
+                                        color:
+                                            Color.fromARGB(111, 245, 228, 207)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        CardCategory(
-                                            restaurant['name'],
-                                            restaurant['imageUrl'],
-                                            restaurant['price'],
-                                            widget.widthLayout,
-                                            widget.ratio),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 20),
+                                          child: Text(
+                                            restaurant['namemain'],
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                        Visibility(
+                                          visible: ((restaurant['id'] == 1) &&
+                                                  (widget.ratio == 1)) ||
+                                              ((restaurant['id'] == 2) &&
+                                                  (widget.ratio == 0.5)),
+                                          child: Row(
+                                            children: [
+                                              IconButton.outlined(
+                                                  padding:
+                                                      EdgeInsets.only(left: 5),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      widget.ratio = 1;
+                                                    });
+                                                  },
+                                                  icon: Icon(
+                                                      Icons.square_rounded)),
+                                              IconButton.outlined(
+                                                  padding:
+                                                      EdgeInsets.only(left: 5),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      widget.ratio = 0.5;
+                                                    });
+                                                  },
+                                                  icon: Icon(
+                                                      Icons.grid_view_sharp)),
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                      .toList(),
+                            ],
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  ),
                 ),
               );
             }).toList(),

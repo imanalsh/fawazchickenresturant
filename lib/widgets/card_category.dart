@@ -7,7 +7,7 @@ class CardCategory extends StatefulWidget {
   final double layoutwidth;
   final double ratio;
 
-  const CardCategory(
+  CardCategory(
       this.name, this.imageUrl, this.price, this.layoutwidth, this.ratio,
       {super.key});
 
@@ -31,11 +31,11 @@ class _CardCategoryState extends State<CardCategory> {
           children: [
             Container(
               margin: const EdgeInsets.all(0.0),
-              padding: const EdgeInsets.all(2.0),
+              //padding: EdgeInsets.only(top: 30),
               decoration: BoxDecoration(
                 border: Border.all(
                     color: Colors.black26,
-                    width: (widget.layoutwidth / 40) * widget.ratio),
+                    width: (widget.layoutwidth / 60) * widget.ratio),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
@@ -49,7 +49,7 @@ class _CardCategoryState extends State<CardCategory> {
                 ),
                 child: Image.asset(
                   widget.imageUrl,
-                  height: (widget.layoutwidth / 1) * widget.ratio,
+                  height: (widget.layoutwidth - 20 / 1) * widget.ratio,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -74,7 +74,7 @@ class _CardCategoryState extends State<CardCategory> {
               child: ListTile(
                 title: Text(
                   widget.name,
-                  textAlign: TextAlign.end,
+                  textAlign: TextAlign.right,
                   style: TextStyle(
                     fontSize: widget.layoutwidth * widget.ratio / 30,
                     color: Colors.white,
