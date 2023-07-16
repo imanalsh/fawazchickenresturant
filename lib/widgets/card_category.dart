@@ -56,8 +56,9 @@ class _CardCategoryState extends State<CardCategory> {
               ),
             ),
             Container(
-              height: (widget.layoutwidth / 7) * widget.ratio,
-              padding: const EdgeInsets.only(bottom: 0),
+              height: (widget.layoutwidth / 6) * widget.ratio,
+              // padding: const EdgeInsets.only(top: 0),
+              //  margin: const EdgeInsets.only(top: 0),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15),
@@ -72,6 +73,7 @@ class _CardCategoryState extends State<CardCategory> {
                 ),
               ),
               child: ListTile(
+                contentPadding: EdgeInsets.only(bottom: 20, right: 20),
                 title: Text(
                   widget.name,
                   textAlign: TextAlign.right,
