@@ -1,55 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/dummy_data.dart';
-import 'package:flutter_application_3/screens/details_meal.dart';
 
+import '../dummy_data.dart';
+import '../screens/details_meal.dart';
 import 'card_category.dart';
-import 'home_view_larg.dart';
 import 'tab_resturant.dart';
 
-class TabBarEx extends StatefulWidget {
-  static const routeName = 'tab_bar_ex';
-
-  double widthLayoutEX;
-  double ratioEx;
-  TabBarEx(
-    this.widthLayoutEX,
-    this.ratioEx,
-  );
-
-  @override
-  State<TabBarEx> createState() => _TabBarExState();
-}
-
-class _TabBarExState extends State<TabBarEx> {
-  @override
-  Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
-    String selectedLocale;
-    String selectedLocaleIndex;
-    if (ModalRoute.of(context)!.settings.arguments != null) {
-      final routeArg =
-          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-      selectedLocale = routeArg['locale']!;
-      selectedLocaleIndex = routeArg['localIndex']!;
-    } else {
-      selectedLocale = 'عربي';
-      selectedLocaleIndex = '0';
-    }
-
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 1200) {
-        return HomeViewSmall(selectedLocale, selectedLocaleIndex,
-            constraints.maxWidth, widget.ratioEx);
-      } else {
-        return HomeViewLarge(selectedLocale, selectedLocaleIndex,
-            constraints.maxWidth, widget.ratioEx);
-      }
-    });
-  }
-}
-
+// ignore: must_be_immutable
 class HomeViewSmall extends StatefulWidget {
   static const routeName = 'home_view_small';
   String selectedLocale;
@@ -66,10 +22,15 @@ class HomeViewSmall extends StatefulWidget {
 }
 
 class _HomeViewSmallState extends State<HomeViewSmall> {
-  // static double get _ratio => _ratio;
-
-  void selectMeal(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(DetailsMeal.routeName);
+  void selectMeal(BuildContext ctx, String name, String imageUrl, String price,
+      String widthLayout, String ratio) {
+    Navigator.of(ctx).pushNamed(DetailsMeal.routeName, arguments: {
+      'name': name,
+      'imageUrl': imageUrl,
+      'price': price,
+      'widthLayout': widthLayout,
+      'ratio': ratio
+    });
   }
 
   @override
@@ -84,26 +45,20 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
               SliverAppBar(
                 actions: popmenubutton,
                 pinned: false,
-                expandedHeight: 330.0,
+                expandedHeight: 200.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  //   title: Text('Goa', textScaleFactor: 1),
                   background: Image.asset(
                     'assets/images/fawz_bk.jpg',
                     fit: BoxFit.fill,
                   ),
-                  stretchModes: [StretchMode.zoomBackground],
+                  stretchModes: const [StretchMode.zoomBackground],
                 ),
-
-                //collapsedHeight: 100,
-                // snap: true,
-                // floating: true,
               ),
               SliverPersistentHeader(
                 delegate: MySliverPersistentHeaderDelegate(
                   TabBar(
                     indicatorColor: Colors.amber,
                     isScrollable: true,
-                    // indicatorSize: ,
                     padding: EdgeInsets.all(10),
                     indicator: BoxDecoration(
                         borderRadius:
@@ -132,8 +87,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                 textDirection: TextDirection.rtl,
                 child: Container(
                   decoration: BoxDecoration(
-                    gradient:
-                        LinearGradient(colors: [Colors.black, Colors.black]),
+                    gradient: LinearGradient(
+                        colors: const [Colors.black, Colors.black]),
                   ),
                   child: GridView(
                     gridDelegate:
@@ -148,8 +103,6 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                         (category['restaurants'] as List<Map<String, dynamic>>)
                             .map((restaurant) {
                       return Column(
-                        //prototypeItem: Text('nvn'),
-
                         children: [
                           Stack(
                             children: [
@@ -159,7 +112,13 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                     left: 20, top: 50, right: 20),
                                 child: InkWell(
                                   onTap: () {
-                                    selectMeal(context);
+                                    selectMeal(
+                                        context,
+                                        restaurant['name'],
+                                        restaurant['imageUrl'],
+                                        restaurant['price'],
+                                        widget.widthLayout.toString(),
+                                        widget.ratio.toString());
                                   },
                                   child: Column(
                                     children: [
@@ -181,9 +140,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                   visible: ((restaurant['id'] == 1) ||
                                       (restaurant['id'] == 2)),
                                   child: Container(
-                                    // width: MediaQuery.of(context).size.width * 2,
                                     decoration: BoxDecoration(
-                                        gradient: LinearGradient(colors: [
+                                        gradient: LinearGradient(colors: const [
                                           Colors.black,
                                           Colors.black
                                         ]),
@@ -221,17 +179,18 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                                       widget.ratio = 1;
                                                     });
                                                   },
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                       Icons.square_rounded)),
                                               IconButton.outlined(
                                                   padding:
-                                                      EdgeInsets.only(left: 5),
+                                                      const EdgeInsets.only(
+                                                          left: 5),
                                                   onPressed: () {
                                                     setState(() {
                                                       widget.ratio = 0.5;
                                                     });
                                                   },
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                       Icons.grid_view_sharp)),
                                             ],
                                           ),
@@ -292,24 +251,16 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
               widget.selectedLocale = 'عربي';
               widget.selectedLocaleIndex = '0';
             });
-
-            print(widget.ratio);
-            print("My account menu is selected.");
           } else if (value == 1) {
             setState(() {
               widget.selectedLocale = 'كوردي';
               widget.selectedLocaleIndex = '1';
             });
-
-            print(widget.ratio);
-            print("Settings menu is selected.");
           } else if (value == 2) {
             setState(() {
               widget.selectedLocale = 'English';
               widget.selectedLocaleIndex = '2';
             });
-
-            print("Logout menu is selected.");
           }
         },
         child: Container(

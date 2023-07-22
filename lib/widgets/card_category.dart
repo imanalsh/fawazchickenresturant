@@ -18,8 +18,6 @@ class CardCategory extends StatefulWidget {
 class _CardCategoryState extends State<CardCategory> {
   @override
   Widget build(BuildContext context) {
-    final double heightImage;
-    final double heightTileText;
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       // elevation: 4,
@@ -49,7 +47,7 @@ class _CardCategoryState extends State<CardCategory> {
                 ),
                 child: Image.asset(
                   widget.imageUrl,
-                  height: (widget.layoutwidth - 20 / 1) * widget.ratio,
+                  height: (widget.layoutwidth * (5 / 6)) * widget.ratio,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -72,29 +70,36 @@ class _CardCategoryState extends State<CardCategory> {
                   ],
                 ),
               ),
-              child: ListTile(
-                contentPadding: EdgeInsets.only(bottom: 20, right: 20),
-                title: Text(
-                  widget.name,
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: widget.layoutwidth * widget.ratio / 30,
-                    color: Colors.white,
+              child: Stack(children: [
+                Positioned(
+                  right: 8,
+                  top: 2,
+                  child: Text(
+                    widget.name,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: widget.layoutwidth * widget.ratio / 20,
+                      color: Colors.white,
+                    ),
+                    softWrap: true,
+                    overflow: TextOverflow.clip,
                   ),
-                  softWrap: true,
-                  overflow: TextOverflow.clip,
                 ),
-                subtitle: Text(
-                  widget.price,
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: widget.layoutwidth * widget.ratio / 40,
-                    color: Colors.white,
+                Positioned(
+                  right: 8,
+                  top: 30 * widget.ratio,
+                  child: Text(
+                    widget.price,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: widget.layoutwidth * widget.ratio / 26,
+                      color: Colors.white,
+                    ),
+                    softWrap: true,
+                    overflow: TextOverflow.fade,
                   ),
-                  softWrap: true,
-                  overflow: TextOverflow.fade,
                 ),
-              ),
+              ]),
             )
           ]),
     );

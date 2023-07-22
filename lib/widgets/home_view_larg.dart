@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/widgets.dart';
-import 'package:flutter_application_3/widgets/tab_bar_Ex.dart';
+import 'home_view_small.dart';
 
+// ignore: must_be_immutable
 class HomeViewLarge extends StatefulWidget {
   String selectedLocale;
   String selectedLocaleIndex;
@@ -32,10 +32,10 @@ class _HomeViewLargeState extends State<HomeViewLarge> {
             Container(
               //  child: Row(),
               padding: EdgeInsets.all(((widget.widthLayout - 1100) / 2)),
-              decoration: const BoxDecoration(color: Colors.black87),
+              decoration: const BoxDecoration(color: Colors.black),
               child: Center(
                 child: Image.asset(
-                  'assets/images/main_logo.jpg',
+                  'assets/images/main_logo.jpeg',
                   width: 200,
                 ),
               ),

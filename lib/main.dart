@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/screens/details_meal.dart';
-import 'package:flutter_application_3/screens/main_screen.dart';
-import 'package:flutter_application_3/widgets/tab_bar_Ex.dart';
+import 'package:flutter_application_3/screens/intro_screen.dart';
+import 'package:flutter_application_3/screens/details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,10 +43,11 @@ class MyApp extends StatelessWidget {
         //(child: const TabBarEx()),
         //initialRoute: 'mainScreen',
         routes: {
-          '/': (context) => MainScreen(constraints.maxWidth, 1),
-          TabBarEx.routeName: (context) => TabBarEx(constraints.maxWidth, 1),
+          '/': (context) => IntroScreen(constraints.maxWidth, 1),
+          DetailsScreen.routeName: (context) =>
+              DetailsScreen(constraints.maxWidth, 1),
 
-          DetailsMeal.routeName: (context) => const DetailsMeal()
+          DetailsMeal.routeName: (context) => DetailsMeal()
           //  CategoryMealsScreen.routeName: (context) => CategoryMealsScreen()
         },
       );
@@ -64,18 +65,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return const Scaffold(
-        // body: const categoriesScreen(),
-        );
+    return const Scaffold();
   }
 }

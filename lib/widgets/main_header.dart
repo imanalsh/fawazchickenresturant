@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class MainHeader extends StatelessWidget {
   const MainHeader({super.key});
 
@@ -9,8 +8,6 @@ class MainHeader extends StatelessWidget {
     return ListView(children: [
       Image.asset('images/fawz_bk.jpg',
           width: 600, height: 240, fit: BoxFit.cover),
-      // CategoryMealsScreen()
-      // MultiLanguage(),
     ]);
   }
 }

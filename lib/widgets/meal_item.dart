@@ -8,15 +8,11 @@ class MealItem extends StatelessWidget {
   //final Color color;
   final String imageUrl;
   // final List<String> categories;
-  const MealItem(
-    this.locale,
-    this.imageUrl,
-    this.id,
-    this.title,
-    this.price, {super.key},
-    // this.color,
-    //this.categories
-  );
+  const MealItem(this.locale, this.imageUrl, this.id, this.title, this.price,
+      {super.key}
+      // this.color,
+      //this.categories
+      );
   void selectMeal() {}
   @override
   Widget build(BuildContext context) {
