@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618072093394",
+    "project_id": "fawazchickenres",
+    "storage_bucket": "fawazchickenres.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618072093394:android:924ea87a44b0c03a62330b",
+        "android_client_info": {
+          "package_name": "com.example.fawazchickenresturant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618072093394-96kgu4oedfj8t7d73b9q9822ua3ufmqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8lpt6DHFuKHEqgIiWOtBmbfeeTzVGyps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618072093394-96kgu4oedfj8t7d73b9q9822ua3ufmqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

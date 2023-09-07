@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/firebase/add_user.dart';
 import 'package:flutter_application_3/widgets/select_local_button.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:ui_web';
 
 import '../widgets/social_media_buttons.dart';
+//import '../firebase/add_user.dart';
 
 class IntroScreen extends StatelessWidget {
   final double widthLayoutEX;
@@ -64,6 +66,8 @@ class IntroScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // ignore: prefer_const_constructors
+                        //  AddUser('iman', 'sete', 12),
                         SocialMediaButtons(
                             socialMedia[0], Icons.facebook_outlined),
                         SocialMediaButtons(

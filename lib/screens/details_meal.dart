@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_3/widgets/card_category.dart';
 
 class DetailsMeal extends StatefulWidget {
   static const routeName = 'details_meals';
 
-  DetailsMeal({super.key});
+  const DetailsMeal({super.key});
   @override
   State<DetailsMeal> createState() => _DetailsMealState();
 }
@@ -31,7 +30,7 @@ class _DetailsMealState extends State<DetailsMeal> {
       return CardCategory(name, imageUrl, price,
           int.parse(widthLayout).toDouble(), int.parse(ratio).toDouble());
     } else {
-      return Text('حدد الوجبة قبل');
+      return const Text('حدد الوجبة قبل');
     }
   }
 }

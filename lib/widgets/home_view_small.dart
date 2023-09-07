@@ -59,13 +59,13 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                   TabBar(
                     indicatorColor: Colors.amber,
                     isScrollable: true,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     indicator: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(10), // Creates border
-                        color: Color.fromARGB(111, 245, 228, 207)),
+                        color: const Color.fromARGB(111, 245, 228, 207)),
                     labelPadding:
-                        EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     splashBorderRadius: BorderRadius.circular(5),
                     labelColor: Colors.white,
                     tabs: DUMMY[int.parse(widget.selectedLocaleIndex)]
@@ -86,9 +86,9 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
               return Directionality(
                 textDirection: TextDirection.rtl,
                 child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: const [Colors.black, Colors.black]),
+                  decoration: const BoxDecoration(
+                    gradient:
+                        LinearGradient(colors: [Colors.black, Colors.black]),
                   ),
                   child: GridView(
                     gridDelegate:
@@ -107,8 +107,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                           Stack(
                             children: [
                               Container(
-                                color: Color.fromARGB(255, 3, 3, 3),
-                                padding: EdgeInsets.only(
+                                color: const Color.fromARGB(255, 3, 3, 3),
+                                padding: const EdgeInsets.only(
                                     left: 20, top: 50, right: 20),
                                 child: InkWell(
                                   onTap: () {
@@ -140,8 +140,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                   visible: ((restaurant['id'] == 1) ||
                                       (restaurant['id'] == 2)),
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                        gradient: LinearGradient(colors: const [
+                                    decoration: const BoxDecoration(
+                                        gradient: LinearGradient(colors: [
                                           Colors.black,
                                           Colors.black
                                         ]),
@@ -158,7 +158,7 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                           child: Text(
                                             restaurant['namemain'],
                                             textAlign: TextAlign.right,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white),
@@ -173,7 +173,8 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                                             children: [
                                               IconButton.outlined(
                                                   padding:
-                                                      EdgeInsets.only(left: 5),
+                                                      const EdgeInsets.only(
+                                                          left: 5),
                                                   onPressed: () {
                                                     setState(() {
                                                       widget.ratio = 1;
@@ -221,7 +222,7 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
         initialValue: 2,
         offset: const Offset(-5, -40),
         padding: const EdgeInsets.only(top: 20, bottom: 2, right: 3),
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(8.0),
             bottomRight: Radius.circular(8.0),
@@ -231,15 +232,15 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
         ),
         itemBuilder: (context) {
           return [
-            PopupMenuItem<int>(
+            const PopupMenuItem<int>(
               value: 0,
               child: Text("عربي"),
             ),
-            PopupMenuItem<int>(
+            const PopupMenuItem<int>(
               value: 1,
               child: Text("كوردي"),
             ),
-            PopupMenuItem<int>(
+            const PopupMenuItem<int>(
               value: 2,
               child: Text("English"),
             ),
@@ -264,13 +265,13 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
           }
         },
         child: Container(
-          margin: EdgeInsets.only(top: 7, bottom: 10, right: 1),
+          margin: const EdgeInsets.only(top: 7, bottom: 10, right: 1),
           decoration: BoxDecoration(
-            border:
-                Border.all(color: Color.fromARGB(255, 90, 90, 90), width: 1),
+            border: Border.all(
+                color: const Color.fromARGB(255, 90, 90, 90), width: 1),
             borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              colors: const <Color>[
+            gradient: const LinearGradient(
+              colors: <Color>[
                 Color.fromARGB(230, 230, 230, 253),
                 Color.fromARGB(255, 253, 253, 253)
               ],
@@ -280,7 +281,7 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
             textDirection: TextDirection.rtl,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.expand_more,
                 size: 18,
                 color: Colors.black,
@@ -291,7 +292,7 @@ class _HomeViewSmallState extends State<HomeViewSmall> {
                 child: Text(
                   widget.selectedLocale,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -320,7 +321,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Material(
-      color: Color.fromARGB(255, 3, 3, 3),
+      color: const Color.fromARGB(255, 3, 3, 3),
       child: Container(
         child: _tabBar,
       ),
